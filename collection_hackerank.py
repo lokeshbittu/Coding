@@ -2,11 +2,13 @@ from collections import Counter
 
 def pricedetect(X, N, cust):
     shoe_pair = Counter(X)
+    
     price = 0
     for i in range(len(cust)):
 
         if cust[i][0] in shoe_pair and shoe_pair[cust[i][0]] > 0:
             price += cust[i][1]
+            print(shoe_pair)
             shoe_pair.update({cust[i][0]:-1})
             #Print the price till now
             print(price)
