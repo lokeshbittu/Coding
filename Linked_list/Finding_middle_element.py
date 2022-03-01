@@ -1,7 +1,6 @@
 
-
 class Node:
-
+    
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -28,6 +27,15 @@ class Linkedlist:
             head = head.next
         
         head.next = new_data
+    
+    def middle(self):
+        slow = fast = self.head
+
+        while(fast and fast.next):
+            slow = slow.next
+            fast = fast.next.next
+        
+        return slow.data
 
     def print(self):
         head = self.head
@@ -40,4 +48,7 @@ class Linkedlist:
 llist = Linkedlist(0)
 llist.push(1)
 llist.append(2)
+llist.append(3)
+llist.append(4)
 llist.print()
+print("The middle element is ",llist.middle())
