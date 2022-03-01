@@ -29,13 +29,21 @@ class Linkedlist:
         head.next = new_data
     
     def middle(self):
-        slow = fast = self.head
+        # slow = fast = self.head
 
-        while(fast and fast.next):
-            slow = slow.next
-            fast = fast.next.next
+        # while(fast and fast.next):
+        #     slow = slow.next
+        #     fast = fast.next.next
         
-        return slow.data
+        # return slow.data
+
+    #Method 2 for middle element:
+        arr = [self.head]
+        while(arr[-1].next):
+            arr.append(arr[-1].next)
+        
+        return arr[len(arr)//2].data
+        
 
     def print(self):
         head = self.head
