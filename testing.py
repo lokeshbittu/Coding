@@ -1,17 +1,10 @@
 
 
-N = 1545647
-a = str(N)
+for i in range(10):
+    for j in range(i,10):
+        if(j == 1):
+            break
+ 
+        print(j)
 
-five_list = []
-
-for i in range(len(a)):
-    if a[i] == "5":
-        five_list.append(i)
-
-
-# we got the indices of the fives:
-min_value = float("-inf")
-for i in five_list:
-    r = a[0:i]+a[i+1:]
     

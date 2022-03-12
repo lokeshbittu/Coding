@@ -1,29 +1,35 @@
 
-def longsubstring(s):
+
+
+from turtle import left
+from numpy import character
+
+
+def longsubstring(s,distinct_number):
     
-    if len(s) == 0:
-        return 0
-    
-    subs = ""
-    i = 0 
-    j = 0
-    a = []
-    max_len = 0
-    while(i < len(s)):
-        if s[i] not in subs:
-            subs += s[i]
-            i += 1
-            
-        else:
-            a = len(subs)
-            if a > max_len:
-                max_len = a
+    window_start = 0
+    character_frequency ={}
+    max_length = 0
+
+    for window_end in range(len(s)):
         
-            subs = ""
-            j += 1
-            i = j
+        if s[window_end] not in character_frequency:
+            character_frequency[s[window_end]] = 0
+        
+        character_frequency[s[window_end]] += 1
+        
+        while(len(character_frequency)>distinct_number):
+            left_character = s[window_start]
+            character_frequency[left_character] -= 1
+            if character_frequency[left_character] == 0:
+                del character_frequency[left_character]
+            window_start += 1
+        
+        
+        max_length = max(max_length,window_end-window_start+1)
+    
+    return max_length
 
-    return max_len
-
-s = "ababababa"
-print(longsubstring(s))
+s = "araaci"
+number = 2
+print(longsubstring(s,number))
