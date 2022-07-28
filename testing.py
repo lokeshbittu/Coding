@@ -1,10 +1,7 @@
 
+from Crypto.Util import number
+import os
 
-for i in range(10):
-    for j in range(i,10):
-        if(j == 1):
-            break
- 
-        print(j)
+primenum = number.getPrime(8, os.urandom)
 
-    
+print(primenum)
